@@ -1,0 +1,10 @@
+{
+  "name": "discord-bridge",
+  "version": "0.0.1",
+  "description": "pluto-to-discord-bridge",
+  "dependencies": {
+	"discord.js": "^11.3.0",
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  }
+}
