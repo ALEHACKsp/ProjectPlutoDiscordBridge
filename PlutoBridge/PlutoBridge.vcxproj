@@ -154,6 +154,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CommandManager.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="Datatypes.h" />
     <ClInclude Include="HookManager.h" />
     <ClInclude Include="Network.h" />
@@ -162,6 +163,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CommandManager.cpp" />
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="HookManager.cpp" />
     <ClCompile Include="Network.cpp" />
