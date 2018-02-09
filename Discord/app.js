@@ -15,6 +15,10 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
 });
 
+http.listen(3000,function() {
+	console.log("Listening")
+});
+
 //emit this function when a user connects in-game
 io.on("connection", socket => {
     let channel = client.channels.get("411579189456797703");
@@ -27,7 +31,7 @@ io.on("connection", socket => {
 
     //emit this function when a new message is sent
     socket.on("chat_message", (key, serverName, msg) => {
-
+    	console.log(key + "::" + serverName + "::" + msg);
     });
 });
 
