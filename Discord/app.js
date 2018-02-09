@@ -1,6 +1,6 @@
 // JavaScript source code
 //require the config
-const config = require("./config")
+const config = require("./config.json")
 //require the discord library
 const Discord = require("discord.js")
 //create a new client
@@ -21,7 +21,7 @@ client.on('ready', () => {
 
 //emit this function when a user connects in-game
 io.on("connection", socket => {
-    let channel = client.channels.get(config.CHANNEL);
+    let channel = client.channels.get(config.channel_id);
     channel.send("A user has connected");
 
     //emit this function when a user disconnects in-game
@@ -30,10 +30,15 @@ io.on("connection", socket => {
     });
 
     //emit this function when a new message is sent
-    socket.on("chat_message", (key, serverName, msg) => {
-    
+    socket.on("chat_message", (key, serverName, user, team, msg) => {
+    	if (key.trim() === config.password.trim()) {
+		channel.send(`**${team}** ${user}: ${msg}`);
+	}
+	else {
+		return;
+	}
     });
 });
 
 //login the client to the token found in the config
-client.login(config.TOKEN);
+client.login(config.bot_token);
