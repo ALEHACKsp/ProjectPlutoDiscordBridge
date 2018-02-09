@@ -13,11 +13,15 @@ const io = require("socket.io")(http);
 //emit this function once the client is ready
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
+
+    http.listen(3000, () => {
+        console.log("Listening on port 3000");
+    })
 });
 
 //emit this function when a user connects in-game
 io.on("connection", socket => {
-    let channel = client.channels.get("411579189456797703");
+    let channel = client.channels.get(config.CHANNEL);
     channel.send("A user has connected");
 
     //emit this function when a user disconnects in-game
@@ -27,7 +31,7 @@ io.on("connection", socket => {
 
     //emit this function when a new message is sent
     socket.on("chat_message", (key, serverName, msg) => {
-
+    
     });
 });
 
