@@ -1,0 +1,5 @@
+{
+	"bot_token":"<yourtoken>",
+	"channel_id":"<yourchannelid>",
+	"password": "<yourpassword>"
+}

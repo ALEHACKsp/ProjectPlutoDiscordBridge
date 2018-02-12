@@ -1,16 +1,12 @@
 // JavaScript source code
-//require the config
 const config = require("./config.json")
-//require the discord library
 const Discord = require("discord.js")
-//create a new client
 const client = new Discord.Client()
 
 const app = require("express")();
 const http = require('http').Server(app);
 const io = require("socket.io")(http);
 
-//emit this function once the client is ready
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
 
@@ -19,26 +15,34 @@ client.on('ready', () => {
     })
 });
 
-//emit this function when a user connects in-game
+function getTeamName(team) {
+	if(team == 1)
+		return "Axis";
+	if(team == 2)
+		return "Allies";
+	if(team == 3)
+		return "Spectators";
+
+	return "None";
+}
+
 io.on("connection", socket => {
     let channel = client.channels.get(config.channel_id);
-    channel.send("A user has connected");
+    channel.send("A server disconnected!");
 
-    //emit this function when a user disconnects in-game
     socket.on("disconnect", () => {
-        channel.send("A user disconnected");
+        channel.send("A server disconnected!");
     });
 
-    //emit this function when a new message is sent
     socket.on("chat_message", (key, serverName, user, team, msg) => {
     	if (key.trim() === config.password.trim()) {
-		channel.send(`**${team}** ${user}: ${msg}`);
-	}
-	else {
-		return;
-	}
+    		msg = msg.replace("","");
+    		channel.send("[" + serverName + "] **" + getTeamName(team.trim()) + "** [" + user + "]: " + msg); //just edit this string to your wishes
+		}
+		else {
+			return;
+		}
     });
 });
 
-//login the client to the token found in the config
 client.login(config.bot_token);
