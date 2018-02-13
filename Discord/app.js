@@ -28,7 +28,7 @@ function getTeamName(team) {
 
 io.on("connection", socket => {
     let channel = client.channels.get(config.channel_id);
-    channel.send("A server disconnected!");
+    channel.send("A server connected!");
 
     socket.on("disconnect", () => {
         channel.send("A server disconnected!");
