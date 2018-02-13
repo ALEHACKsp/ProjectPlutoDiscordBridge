@@ -16,9 +16,7 @@ While the first value indicates the password for the connection to the discord b
 # Discord Bot
 Clone or download the "Discord" directory from the source code, install the needed modules using:
 ```
-npm install --save express
-npm install --save discord.js
-npm install --save socket.io
+npm install
 ```
 Add the bot to your server using discord's developer panel.
 Edit the config.json to your needs.
