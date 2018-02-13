@@ -4,7 +4,7 @@
 namespace Config
 {
 	extern std::string Key;
-	extern std::string IP;
+	extern std::string Remote;
 
 	void ReadConfig();
 }

@@ -1,25 +1,26 @@
 #include "stdafx.h"
 #include <string>
 #include <fstream>
+#include <rapidjson/document.h>
+#include <rapidjson/istreamwrapper.h>
 
 std::string Config::Key;
-std::string Config::IP;
+std::string Config::Remote;
 
 namespace Config
 {
 	void ReadConfig()
 	{
-		std::ifstream file("config.txt");
-		std::string myArray[2];
-		if(file.is_open())
-		{
-			for (int i = 0; i < 2; ++i)
-			{
-				file >> myArray[i];
-			}
-		}
+		std::ifstream file("config.json");
+		
+		rapidjson::IStreamWrapper streamWrapper(file);
+		rapidjson::Document json;
 
-		Key = myArray[0];
-		IP = myArray[1];
+		json.ParseStream(streamWrapper);
+		
+		Key = json["Key"].GetString();
+		Remote = json["Remote"].GetString();
+
+		MessageBoxA(NULL, Key.c_str(), Remote.c_str(), 0);
 	}
 }
