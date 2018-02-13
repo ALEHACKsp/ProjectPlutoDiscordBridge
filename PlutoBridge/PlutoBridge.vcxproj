@@ -159,6 +159,7 @@
     <ClInclude Include="HookManager.h" />
     <ClInclude Include="Network.h" />
     <ClInclude Include="PlutoBridge.h" />
+    <ClInclude Include="Server.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -172,6 +173,7 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Arnie\Documents\Visual Studio 2017\Projects\PlutoDiscordBridge\PlutoBridge;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Arnie\Documents\Visual Studio 2017\Projects\PlutoDiscordBridge\PlutoBridge;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="Server.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

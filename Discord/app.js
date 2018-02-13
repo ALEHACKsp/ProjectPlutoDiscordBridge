@@ -45,4 +45,8 @@ io.on("connection", socket => {
     });
 });
 
+client.on("message", msg => {
+	if(!msg.author.bot)
+		io.emit("discord_message",config.password,"LUUUUL",msg.author.username,msg.content)
+});
 client.login(config.bot_token);
