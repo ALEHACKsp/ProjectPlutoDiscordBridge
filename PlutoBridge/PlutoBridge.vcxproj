@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;PLUTOBRIDGE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Arnie\Desktop\rapidjson\rapidjson\include;C:\Users\Arnie\Boost\boost_1_66_0;C:\Users\Arnie\Desktop\socket.io-client-cpp\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Arnie\Desktop\nlohman_json\json\include;C:\Users\Arnie\Boost\boost_1_66_0;C:\Users\Arnie\Desktop\socket.io-client-cpp\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -123,7 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;PLUTOBRIDGE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Arnie\Desktop\rapidjson\rapidjson\include;C:\Users\Arnie\Boost\boost_1_66_0;C:\Users\Arnie\Desktop\socket.io-client-cpp\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Arnie\Desktop\nlohman_json\json\include;C:\Users\Arnie\Boost\boost_1_66_0;C:\Users\Arnie\Desktop\socket.io-client-cpp\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

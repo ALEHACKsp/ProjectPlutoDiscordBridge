@@ -1,26 +1,55 @@
 #include "stdafx.h"
 #include <string>
 #include <fstream>
-#include <rapidjson/document.h>
-#include <rapidjson/istreamwrapper.h>
+#include <nlohmann/json.hpp>
 
 std::string Config::Key;
 std::string Config::Remote;
 
 namespace Config
 {
-	void ReadConfig()
+	bool Internal::CreateConfig()
+	{
+		nlohmann::json json;
+
+		json["Key"] = "<yourkey>";
+		json["Remote"] = "<yourremote>";
+		json["Encrypted"] = false;
+
+		std::ofstream file("config.json", std::ios::out);
+
+		if(!file || !file.is_open())
+		{
+			CommandManager::Print("[PlutoBridge]::Could not create config.json!\n");
+			return false;
+		}
+
+		file << json.dump().c_str() << std::endl;
+
+		file.close();
+
+		CommandManager::Print("[PlutoBridge]::Config.json created, edit it to your needs!\n");
+		return true;
+	}
+
+	bool ReadConfig()
 	{
 		std::ifstream file("config.json");
 		
-		rapidjson::IStreamWrapper streamWrapper(file);
-		rapidjson::Document json;
+		if(!file)
+		{
+			CommandManager::Print("[PlutoBridge]::Could not find config.json!\n");
+			CommandManager::Print("[PlutoBridge]::Creating config.json...\n");
+			return Internal::CreateConfig();
+		}
 
-		json.ParseStream(streamWrapper);
-		
-		Key = json["Key"].GetString();
-		Remote = json["Remote"].GetString();
+		nlohmann::json json;
 
-		MessageBoxA(NULL, Key.c_str(), Remote.c_str(), 0);
+		file >> json;
+
+		Key = json["Key"].get<std::string>();
+		Remote = json["Remote"].get<std::string>();
+
+		return true;
 	}
 }

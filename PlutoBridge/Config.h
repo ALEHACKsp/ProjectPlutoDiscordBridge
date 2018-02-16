@@ -3,8 +3,12 @@
 
 namespace Config
 {
+	namespace Internal
+	{
+		bool CreateConfig();
+	}
 	extern std::string Key;
 	extern std::string Remote;
 
-	void ReadConfig();
+	bool ReadConfig();
 }

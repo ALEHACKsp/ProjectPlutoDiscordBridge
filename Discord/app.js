@@ -27,17 +27,18 @@ function getTeamName(team) {
 }
 
 io.on("connection", socket => {
-    let channel = client.channels.get(config.channel_id);
-    channel.send("A server connected!");
+    let channels = client.channels;
+    console.log("A server connected!")
 
     socket.on("disconnect", () => {
-        channel.send("A server disconnected!");
+        console.log("A server disconnected!")
     });
 
     socket.on("chat_message", (key, serverName, user, team, msg) => {
-    	if (key.trim() === config.password.trim()) {
+    	if (key.trim() === config.key.trim()) {
     		msg = msg.replace("","");
-    		channel.send("[" + serverName + "] **" + getTeamName(team.trim()) + "** [" + user + "]: " + msg); //just edit this string to your wishes
+            let channel = channels.get(config.servers[serverName]);
+    		channel.send("**" + getTeamName(team.trim()) + "** [" + user + "]: " + msg); //just edit this string to your wishes
 		}
 		else {
 			return;
@@ -46,7 +47,8 @@ io.on("connection", socket => {
 });
 
 client.on("message", msg => {
-	if(!msg.author.bot)
-		io.emit("discord_message",config.password,"LUUUUL",msg.author.username,msg.content)
+    //TODO!
+    if (!msg.author.bot)
+		io.emit("discord_message",config.key,"LUUUUL",msg.author.username,msg.content)
 });
 client.login(config.bot_token);
