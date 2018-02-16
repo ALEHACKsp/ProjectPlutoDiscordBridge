@@ -4,6 +4,10 @@
     "<hostname_of_server_0>": "<id_of_channel_to_stream_in_0>",
     "<hostname_of_server_1>": "<id_of_channel_to_stream_in_1>"
   },
+  "channels": {
+    "<id_of_channel_to_stream_from_0>": "<hostname_of_server_0",
+    "<id_of_channel_to_stream_from_1>": "<hostname_of_server_1>"
+  },
   "key": "<yourkey>",
   "encrypted" : false 
 }

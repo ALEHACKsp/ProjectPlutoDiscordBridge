@@ -49,6 +49,6 @@ io.on("connection", socket => {
 client.on("message", msg => {
     //TODO!
     if (!msg.author.bot)
-		io.emit("discord_message",config.key,"LUUUUL",msg.author.username,msg.content)
+		io.emit("discord_message",config.key,config.channels[msg.channel.id],msg.author.username,msg.content)
 });
 client.login(config.bot_token);
