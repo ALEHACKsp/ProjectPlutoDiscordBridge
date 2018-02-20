@@ -90,13 +90,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;PLUTOBRIDGE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Arnie\Desktop\nlohman_json\json\include;C:\Users\Arnie\Boost\boost_1_66_0;C:\Users\Arnie\Desktop\socket.io-client-cpp\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Arnie\Desktop\crypto++\cryptopp;C:\Users\Arnie\Desktop\nlohman_json\json\include;C:\Users\Arnie\Boost\boost_1_66_0;C:\Users\Arnie\Desktop\socket.io-client-cpp\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Arnie\Desktop\socket.io-client-cpp\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libboost_date_time-vc141-mt-1_66.lib;libboost_random-vc141-mt-1_66.lib;libboost_system-vc141-mt-1_66.lib;sioclient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Arnie\Desktop\crypto++\cryptopp\Win32\Output\Release;C:\Users\Arnie\Desktop\socket.io-client-cpp\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_date_time-vc141-mt-1_66.lib;libboost_random-vc141-mt-1_66.lib;libboost_system-vc141-mt-1_66.lib;cryptlib.lib;sioclient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,15 +123,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;PLUTOBRIDGE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Arnie\Desktop\nlohman_json\json\include;C:\Users\Arnie\Boost\boost_1_66_0;C:\Users\Arnie\Desktop\socket.io-client-cpp\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Arnie\Desktop\crypto++\cryptopp;C:\Users\Arnie\Desktop\nlohman_json\json\include;C:\Users\Arnie\Boost\boost_1_66_0;C:\Users\Arnie\Desktop\socket.io-client-cpp\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Arnie\Desktop\socket.io-client-cpp\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libboost_date_time-vc141-mt-1_66.lib;libboost_random-vc141-mt-1_66.lib;libboost_system-vc141-mt-1_66.lib;sioclient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Arnie\Desktop\crypto++\cryptopp\Win32\Output\Release;C:\Users\Arnie\Desktop\socket.io-client-cpp\build\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_date_time-vc141-mt-1_66.lib;libboost_random-vc141-mt-1_66.lib;libboost_system-vc141-mt-1_66.lib;cryptlib.lib;sioclient.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClInclude Include="CommandManager.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Crypt.h" />
     <ClInclude Include="Datatypes.h" />
     <ClInclude Include="HookManager.h" />
     <ClInclude Include="Network.h" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClCompile Include="CommandManager.cpp" />
     <ClCompile Include="Config.cpp" />
+    <ClCompile Include="Crypt.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="HookManager.cpp" />
     <ClCompile Include="Network.cpp" />
